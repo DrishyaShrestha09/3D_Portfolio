@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import Loader from "../components/Loader"
 import Island from "../models/Island"
+import Sky from "../models/Sky"
 
 {/* <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
     CHOPPER
@@ -43,6 +44,9 @@ const Home = () => {
         scale = {islandScale}
         rotation = {islandRotation}
         />
+
+        <Sky />
+
         </Suspense>
       </Canvas>
     </section>
