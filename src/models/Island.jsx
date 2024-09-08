@@ -15,8 +15,8 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage = () => {}, ...prop
     const dampingFactor = 0.95;
 
     const handlePointerDown = (e) => {
-        e.stopPropagation(); // Prevent other elements from receiving this event
-        e.preventDefault(); // Prevent default browser behavior
+        e.stopPropagation();
+        e.preventDefault();
         setIsRotating(true);
 
         const clientX = e.touches
@@ -27,14 +27,14 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage = () => {}, ...prop
     }
 
     const handlePointerUp = (e) => {
-        e.stopPropagation(); // Prevent other elements from receiving this event
-        e.preventDefault(); // Prevent default browser behavior
+        e.stopPropagation();
+        e.preventDefault();
         setIsRotating(false);   
     }
 
     const handlePointerMove = (e) => {
-        e.stopPropagation(); // Prevent other elements from receiving this event
-        e.preventDefault(); // Prevent default browser behavior
+        e.stopPropagation();
+        e.preventDefault();
 
         if (isRotating) {
             const clientX = e.touches
@@ -69,8 +69,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage = () => {}, ...prop
             if (Math.abs(rotationSpeed.current) < 0.001) {
                 rotationSpeed.current = 0;
             }
-
-
             islandRef.current.rotation.y += rotationSpeed.current;
         } else {
             const rotation = islandRef.current.rotation.y;

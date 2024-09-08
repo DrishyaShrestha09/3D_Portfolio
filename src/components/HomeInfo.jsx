@@ -45,9 +45,7 @@ const renderContent = {
 };
 
 const HomeInfo = ({ currentStage }) => {
-    console.log("Current Stage:", currentStage); // Debug output
-    console.log("Render Content:", renderContent[currentStage]); // Debug output
-    return renderContent[currentStage] || <p>No content available for this stage.</p>;
+    return renderContent[currentStage] || null;
 };
 
 export default HomeInfo;

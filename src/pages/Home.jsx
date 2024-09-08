@@ -1,6 +1,5 @@
 import { useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import Loader from "../components/Loader";
 import Island from "../models/Island";
 import Sky from "../models/Sky";
 import Bird from "../models/Bird";
@@ -52,13 +51,10 @@ const Home = () => {
         className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
         camera={{ near: 0.1, far: 1000 }}
       >
-        <Suspense fallback={<Loader />}>
-          {/* Lighting setup */}
+        <Suspense>
           <directionalLight position={[1, 1, 1]} intensity={0.5} />
           <ambientLight />
           <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
-
-          {/* 3D components */}
           <Bird />
           <Sky isRotating={isRotating} />
           <Island

@@ -1,6 +1,6 @@
 import { useGLTF } from '@react-three/drei';
 import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';  // Corrected 'useframe' to 'useFrame'
+import { useFrame } from '@react-three/fiber';
 
 import skyScene from '../assets/3d/sky.glb';
 
@@ -16,7 +16,7 @@ const Sky = ({ isRotating }) => {
 
     return (
         <mesh ref={skyRef}>
-            <primitive object={scene} />  {/* Corrected 'Sky.scene' to 'scene' */}
+            <primitive object={scene} />
         </mesh>
     );
 }
