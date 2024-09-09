@@ -6,9 +6,10 @@ import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
 
+
 const Home = () => {
+  const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
-  const [currentStage, setCurrentStage] = useState(null);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
@@ -52,8 +53,8 @@ const Home = () => {
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense>
-          <directionalLight position={[1, 1, 1]} intensity={0.5} />
-          <ambientLight />
+          <directionalLight position={[1, 1, 1]} intensity={2} />
+          <ambientLight intensity={0.5} />
           <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
           <Bird />
           <Sky isRotating={isRotating} />
