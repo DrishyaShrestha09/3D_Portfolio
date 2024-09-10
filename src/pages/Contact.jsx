@@ -4,11 +4,13 @@ import { Canvas } from '@react-three/fiber';
 
 import Fox from '../models/Fox';
 
+import Loader from '../components/Loader';
 
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); 
+  const [currentAnimation, setCurrentAnimation] = useState('idle');
 
   const handleChange = (e) => {
     setForm({
@@ -20,6 +22,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation('hit');
 
     emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -29,25 +32,25 @@ const Contact = () => {
         to_name: "Ridan Shrestha",
         form_email: form.email,
         to_email: 'ridanstha09@gmail.com',
-        messege: form.message
+        message: form.message
       },
       import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
     ).then(() => {
       setIsLoading(false);
-      // TODO: show success message
-      // TODO: hide an alert
 
-      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => {
+        setCurrentAnimation('idle')
+        setForm({ name: '', email: '', message: '' });
+      }, [3000]);
+
     }).catch((error) => {
       setIsLoading(false);
-      console.log(error);
-      // TODO: show error message
-    })
-
+      setCurrentAnimation('idle')
+    });
   };
 
-  const handleFocus = () => { };
-  const handleBlur = () => { };
+  const handleFocus = () => setCurrentAnimation('walk');
+  const handleBlur = () => setCurrentAnimation('idle');
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
@@ -123,8 +126,9 @@ const Contact = () => {
         >
           <directionalLight intensity={2.5} position={[0, 0, 1]} />
           <ambientLight intensity={0.5} />
-          <Suspense>
+          <Suspense fallback={<Loader />}>
             <Fox
+              currentAnimation={currentAnimation}
               position={[0.5, 0.35, 0]}
               rotation={[12.6, -0.6, 0]}
               scale={[0.5, 0.5, 0.5]}
