@@ -7,7 +7,7 @@ import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
-  const [currentStage, setCurrentStage] = useState(1); // Initial stage set to 1
+  const [currentStage, setCurrentStage] = useState(1); // added useState
   const [isRotating, setIsRotating] = useState(false);
 
   const adjustIslandForScreenSize = () => {
@@ -44,7 +44,7 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage} />} {/* Pass currentStage to HomeInfo */}
+        {currentStage && <HomeInfo currentStage={currentStage} />} {/* Added currentStage to HomeInfo */}
       </div>
 
       <Canvas
