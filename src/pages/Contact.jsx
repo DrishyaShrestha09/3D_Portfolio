@@ -82,7 +82,7 @@ const Contact = () => {
               name="email"
               className="input"
               placeholder="john@gmail.com"
-              required
+              required 
               value={form.email}
               onChange={handleChange}
               onFocus={handleFocus}
