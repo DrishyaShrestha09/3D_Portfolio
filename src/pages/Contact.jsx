@@ -1,13 +1,14 @@
-import React, { Suspense, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Canvas } from '@react-three/fiber';
+import { Suspense, useRef, useState } from 'react';
 
 import Fox from '../models/Fox';
 
 import Loader from '../components/Loader';
 
 const Contact = () => {
-  const formRef = useRef(null);
+  // const formRef = useRef(null);
+  const formRef = useRef();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [isLoading, setIsLoading] = useState(false); 
   const [currentAnimation, setCurrentAnimation] = useState('idle');
