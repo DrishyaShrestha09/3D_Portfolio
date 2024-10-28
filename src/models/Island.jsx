@@ -49,18 +49,27 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage = () => {}, ...prop
         }
     }
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-            if (!isRotating) setIsRotating(true);
-            islandRef.current.rotation.y += (e.key === 'ArrowLeft' ? 0.01 : -0.01) * Math.PI;
-        }
-    }
+   // Handle keydown events
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      if (!isRotating) setIsRotating(true);
 
-    const handleKeyUp = (e) => {
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-            setIsRotating(false);
-        }
+      islandRef.current.rotation.y += 0.005 * Math.PI;
+      rotationSpeed.current = 0.007;
+    } else if (event.key === "ArrowRight") {
+      if (!isRotating) setIsRotating(true);
+
+      islandRef.current.rotation.y -= 0.005 * Math.PI;
+      rotationSpeed.current = -0.007;
     }
+  };
+
+  // Handle keyup events
+  const handleKeyUp = (event) => {
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      setIsRotating(false);
+    }
+  };
 
     useFrame(() => {
         if (isRotating) {
