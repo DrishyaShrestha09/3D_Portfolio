@@ -10,6 +10,7 @@ import {
     html,
     javascript,
     linkedin,
+    mail,
     mongodb,
     motion,
     mui,
@@ -166,19 +167,19 @@ export const experiences = [
 
 export const socialLinks = [
     {
-        name: 'Contact',
-        iconUrl: contact,
-        link: '/contact',
+        name: 'Mail',
+        iconUrl: mail,
+        link: 'mailto:ridanstha09@gmail.com',
     },
     {
         name: 'GitHub',
         iconUrl: github,
-        link: 'https://github.com/YourGitHubUsername',
+        link: 'https://github.com/DrishyaShrestha09',
     },
     {
         name: 'LinkedIn',
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/YourLinkedInUsername',
+        link: 'https://www.linkedin.com/in/ridan-shrestha-57ab56293/',
     }
 ];
 

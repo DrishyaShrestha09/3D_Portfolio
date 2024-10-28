@@ -4,6 +4,7 @@ import git from './git.svg'
 import github from './github.svg'
 import html from './html.svg'
 import javascript from './javascript.svg'
+import mail from './mail.svg'  
 import mongodb from './mongodb.svg'
 import motion from './motion.svg'
 import mui from './mui.svg'
@@ -55,5 +56,6 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    mail
 }
