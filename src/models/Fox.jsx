@@ -4,13 +4,15 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import scene from "../assets/3d/fox.glb";
 
 
-const Fox = ({ currentAnimation, ...props }) => {
+export function Fox({ currentAnimation, ...props }) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
 
+  // This effect will run whenever the currentAnimation prop changes
   useEffect(() => {
     Object.values(actions).forEach((action) => action.stop());
+
     if (actions[currentAnimation]) {
       actions[currentAnimation].play();
     }
@@ -54,6 +56,5 @@ const Fox = ({ currentAnimation, ...props }) => {
     </group>
   );
 }
-
 useGLTF.preload(scene);
 export default Fox;
