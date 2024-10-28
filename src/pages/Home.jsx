@@ -8,11 +8,17 @@ import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
 
+//ADDING MUSIC
 import Ladyfingers from '../assets/Ladyfingers.mp3';
+// import DuvetBoa from '../assets/DuvetBoa.mp3';
+import sakura from '../assets/sakura.mp3';
 import { soundoff, soundon } from "../assets/icons";
 
 const Home = () => {
   const audioRef = useRef(new Audio(Ladyfingers));
+  // const audioRef = useRef(new Audio(DuvetBoa));
+  // const audioRef = useRef(new Audio(sakura));
+
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
   const [currentStage, setCurrentStage] = useState(1); // added useState
