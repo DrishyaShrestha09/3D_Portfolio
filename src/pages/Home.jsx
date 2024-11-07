@@ -11,7 +11,7 @@ import HomeInfo from "../components/HomeInfo";
 //ADDING MUSIC
 import Ladyfingers from '../assets/Ladyfingers.mp3';
 // import DuvetBoa from '../assets/DuvetBoa.mp3';
-import sakura from '../assets/sakura.mp3';
+// import sakura from '../assets/sakura.mp3';
 import { soundoff, soundon } from "../assets/icons";
 
 const Home = () => {
@@ -119,7 +119,7 @@ const Home = () => {
         <img
           src={!isPlayingMusic ? soundoff : soundon}
           alt='jukebox'
-          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+          onClick={() => setPlayingMusic(!isPlayingMusic)}
           className='w-10 h-10 cursor-pointer object-contain'
         />
       </div>
