@@ -9,7 +9,7 @@ import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
 
 //ADDING MUSIC
-import Ladyfingers from '../assets/Ladyfingers.mp3';
+import Ladyfingers from "../assets/Ladyfingers.mp3";
 // import DuvetBoa from '../assets/DuvetBoa.mp3';
 // import sakura from '../assets/sakura.mp3';
 import { soundoff, soundon } from "../assets/icons";
@@ -22,21 +22,21 @@ const Home = () => {
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
 
-  const [currentStage, setCurrentStage] = useState(1); 
+  const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
   const [isPlayingMusic, setPlayingMusic] = useState(false);
 
   useEffect(() => {
-    if(isPlayingMusic) {
+    if (isPlayingMusic) {
       audioRef.current.play();
-    }  
+    }
 
     return () => {
       audioRef.current.pause();
-    }
+    };
   }, [isPlayingMusic]);
 
- const adjustBiplaneForScreenSize = () => {
+  const adjustBiplaneForScreenSize = () => {
     let screenScale, screenPosition;
 
     // If screen width is less than 768px, adjust the scale and position
@@ -69,8 +69,8 @@ const Home = () => {
   const [islandScale, islandPosition] = adjustIslandForScreenSize();
 
   return (
-    <section className='w-full h-screen relative'>
-      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+    <section className="w-full h-screen relative">
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
 
@@ -91,8 +91,8 @@ const Home = () => {
             intensity={2}
           />
           <hemisphereLight
-            skyColor='#b1e1ff'
-            groundColor='#000000'
+            skyColor="#b1e1ff"
+            groundColor="#000000"
             intensity={1}
           />
 
@@ -115,12 +115,12 @@ const Home = () => {
         </Suspense>
       </Canvas>
 
-      <div className='absolute bottom-2 left-2'>
+      <div className="absolute bottom-2 left-2">
         <img
           src={!isPlayingMusic ? soundoff : soundon}
-          alt='jukebox'
+          alt="jukebox"
           onClick={() => setPlayingMusic(!isPlayingMusic)}
-          className='w-10 h-10 cursor-pointer object-contain'
+          className="w-10 h-10 cursor-pointer object-contain"
         />
       </div>
     </section>
