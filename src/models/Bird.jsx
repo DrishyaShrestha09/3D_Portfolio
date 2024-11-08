@@ -37,6 +37,6 @@ const Bird = () => {
       <primitive object={scene} />
     </mesh>
   );
-}
+};
 
 export default Bird;
